@@ -20,7 +20,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         email: user.email,
         time: Date.now(),
       },
-      'hello',
+      'Somuu',
       {
         expiresIn: '8h',
       }
@@ -28,7 +28,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     res.setHeader(
       'Set-Cookie',
-      cookie.serialize('TRAX_ACCESS_TOKEN', token, {
+      cookie.serialize('SHAN_ACESS_TOKEN', token, {
         httpOnly: true,
         maxAge: 8 * 60 * 60,
         path: '/',
