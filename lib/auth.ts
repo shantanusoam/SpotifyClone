@@ -10,7 +10,7 @@ export const validateRoute = (handler) => {
       let user;
 
       try {
-        const { id } = jwt.verify(token, 'hello');
+        const { id } = jwt.verify(token, 'Somuu');
         user = await prisma.user.findUnique({
           where: { id },
         });
@@ -20,7 +20,7 @@ export const validateRoute = (handler) => {
         }
       } catch (error) {
         res.status(401);
-        res.json({ error: 'Not Authorizied' });
+        res.json({ error: 'Not Authorizied inside if' });
         return;
       }
 
@@ -28,11 +28,11 @@ export const validateRoute = (handler) => {
     }
 
     res.status(401);
-    res.json({ error: 'Not Authorizied' });
+    res.json({ error: 'Not Authorizied outside' });
   };
 };
 
 export const validateToken = (token) => {
-  const user = jwt.verify(token, 'hello');
+  const user = jwt.verify(token, 'Somuu');
   return user;
 };

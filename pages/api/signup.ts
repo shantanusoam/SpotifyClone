@@ -19,7 +19,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     });
   } catch (e) {
     res.status(401);
-    res.send({ error: 'User already exists' });
+    res.send({
+      error: `User already exists ${email} -- ${password} ${req.body}`,
+    });
     return;
   }
   const token = jwt.sign(
