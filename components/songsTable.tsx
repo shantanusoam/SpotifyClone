@@ -6,13 +6,13 @@ import { useStoreActions } from 'easy-peasy';
 import { formatDate, formatTime } from '../lib/formatters';
 
 const SongTable = ({ songs }) => {
-  //   const playSongs = useStoreActions((store: any) => store.changeActiveSongs);
-  //   const setActiveSong = useStoreActions((store: any) => store.changeActiveSong);
+  const playSongs = useStoreActions((store: any) => store.changeActiveSongs);
+  const setActiveSong = useStoreActions((store: any) => store.changeActiveSong);
 
-  //   const handlePlay = (activeSong?) => {
-  //     setActiveSong(activeSong || songs[0]);
-  //     playSongs(songs);
-  //   };
+  const handlePlay = (activeSong?) => {
+    setActiveSong(activeSong || songs[0]);
+    playSongs(songs);
+  };
 
   return (
     <Box bg="transparent" color="white">
@@ -24,7 +24,7 @@ const SongTable = ({ songs }) => {
             colorScheme="green"
             size="lg"
             isRound
-            // onClick={() => handlePlay()}
+            onClick={() => handlePlay()}
           />
         </Box>
         <Table variant="unstyled">
@@ -49,7 +49,7 @@ const SongTable = ({ songs }) => {
                 }}
                 key={song.id}
                 cursor="pointer"
-                // onClick={() => handlePlay(song)}
+                onClick={() => handlePlay(song)}
               >
                 <Td>{i + 1}</Td>
                 <Td>{song.name}</Td>
